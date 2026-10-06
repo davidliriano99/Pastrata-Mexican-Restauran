@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Pastrata Mexican Restaurant | Menú & Sabor Auténtico</title>
+    <!-- Google Fonts: Doodle Sketch & Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Architects+Daughter&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==========================================
+           1. PALETA & VARIABLES DE GARABATO
+           ========================================== */
+        :root {
+            --bg-black: #0E0F12;
+            --bg-dark-card: #16181D;
+            --bg-card-hover: #1F2229;
+            --gray-border: #3A3F4A;
+            --gray-sketch: #7A8291;
+            --gray-text: #A7AFBE;
+            --pure-white: #FFFFFF;
+            --font-doodle: 'Patrick Hand', cursive;
+            --font-sketch-title: 'Architects Daughter', cursive;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-black);
+            color: var(--pure-white);
+            line-height: 1.6;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+            padding-bottom: 70px;
+        }
+
+        @media (min-width: 993px) {
+            body { padding-bottom: 0; }
+        }
+
+        h1, h2, h3, h4, .font-doodle {
+            font-family: var(--font-doodle);
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* BORDES ESTILO BOCETO A MANO */
+        .sketch-border {
+            border: 2px solid var(--pure-white);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+        }
+
+        /* ==========================================
+           2. TOP BAR & HEADER CON LOGO OFICIAL
+           ========================================== */
+        .top-bar {
+            background-color: #08090A;
+            border-bottom: 2px dashed var(--gray-border);
+            padding: 8px 6%;
+            font-family: var(--font-doodle);
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar i {
+            color: var(--pure-white);
+            margin-right: 5px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            padding: 14px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(14, 15, 18, 0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--gray-border);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 6%;
+            border-bottom: 2px solid var(--pure-white);
+        }
+
+        /* LOGO ORIGINAL PASTRATA VECTORIZADO */
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .logo-crest-svg {
+            width: 110px;
+            height: 22px;
+            margin-bottom: -2px;
+        }
+
+        .logo-pastrata-text {
+            font-family: var(--font-doodle);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            line-height: 0.85;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-sub-text {
+            font-family: var(--font-body);
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* Nav Desktop */
+        .nav-desktop {
+            display: none;
+        }
+
+        @media (min-width: 993px) {
+            .nav-desktop {
+                display: flex;
+                gap: 26px;
+            }
+            .nav-desktop a {
+                font-family: var(--font-doodle);
+                font-size: 1.25rem;
+                color: var(--gray-text);
+                transition: var(--transition);
+            }
+            .nav-desktop a:hover {
+                color: var(--pure-white);
+                transform: rotate(-2deg);
+            }
+        }
+
+        .btn-menu-toggle {
+            width: 44px;
+            height: 44px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            background: var(--bg-dark-card);
+            border: 2px solid var(--gray-border);
+            color: var(--pure-white);
+            display: grid;
+            place-items: center;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 993px) {
+            .btn-menu-toggle { display: none; }
+        }
+
+        /* Botones estilo Garabato */
+        .btn-sketch {
+            font-family: var(--font-doodle);
+            font-size: 1.2rem;
+            padding: 8px 22px;
+            background: var(--pure-white);
+            color: var(--bg-black);
+            font-weight: 700;
+            border: 2px solid var(--pure-white);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 3px 3px 0px var(--gray-sketch);
+        }
+
+        .btn-sketch:hover {
+            background: transparent;
+            color: var(--pure-white);
+            transform: translate(-2px, -2px) rotate(1deg);
+            box-shadow: 5px 5px 0px var(--pure-white);
+        }
+
+        .btn-sketch-outline {
+            font-family: var(--font-doodle);
+            font-size: 1.2rem;
+            padding: 8px 22px;
+            background: transparent;
+            color: var(--pure-white);
+            border: 2px dashed var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .btn-sketch-outline:hover {
+            border-color: var(--pure-white);
+            border-style: solid;
+            transform: translateY(-3px) rotate(-1deg);
+        }
+
+        /* Menú Lateral Móvil */
+        .mobile-drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 82%;
+            max-width: 320px;
+            height: 100%;
+            background: rgba(14, 15, 18, 0.98);
+            backdrop-filter: blur(20px);
+            border-left: 2px solid var(--gray-border);
+            z-index: 2000;
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: right 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .mobile-drawer.open { right: 0; }
+
+        .drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .drawer-overlay.open { opacity: 1; visibility: visible; }
+
+        .drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px dashed var(--gray-border);
+            padding-bottom: 15px;
+        }
+
+        .btn-close-drawer {
+            background: transparent;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        .drawer-links li { margin-bottom: 18px; }
+        .drawer-links a {
+            font-family: var(--font-doodle);
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ==========================================
+           3. HERO CON DOODLES & CACTUS ANIMADO
+           ========================================== */
+        .hero {
+            padding: 40px 6% 50px;
+            position: relative;
+        }
+
+        @media (min-width: 993px) {
+            .hero { padding: 80px 8% 70px; }
+        }
+
+        .hero-grid {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (min-width: 993px) {
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 60px;
+            }
+        }
+
+        .doodle-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-doodle);
+            font-size: 1.15rem;
+            background: var(--bg-dark-card);
+            border: 2px dashed var(--gray-border);
+            padding: 4px 16px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            margin-bottom: 15px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-title .title-highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .doodle-underline {
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+        }
+
+        .hero-desc {
+            color: var(--gray-text);
+            font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        @media (min-width: 480px) {
+            .hero-actions {
+                flex-direction: row;
+                width: auto;
+            }
+        }
+
+        /* Contenedor del Platillo Flotante y Doodles */
+        .hero-dish-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-dish-box {
+            position: relative;
+            width: clamp(260px, 68vw, 360px);
+            height: clamp(260px, 68vw, 360px);
+        }
+
+        /* Foto Real con Movimiento */
+        .hero-dish-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--pure-white);
+            box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.9);
+            animation: heroDishOscillate 6s ease-in-out infinite alternate;
+        }
+
+        /* Cactus Animado Garabateado con Sombrero */
+        .doodle-hero-cactus {
+            position: absolute;
+            bottom: -20px;
+            left: -35px;
+            width: clamp(90px, 25vw, 120px);
+            animation: cactusDance 4s infinite ease-in-out alternate;
+            z-index: 2;
+        }
+
+        /* Sol Doodle Giratorio */
+        .doodle-hero-sun {
+            position: absolute;
+            top: -25px;
+            right: -20px;
+            width: clamp(65px, 18vw, 85px);
+            animation: sunSpin 25s linear infinite;
+        }
+
+        /* Flecha Garabateada con Nota */
+        .doodle-arrow-note {
+            position: absolute;
+            top: -10px;
+            left: -60px;
+            font-family: var(--font-doodle);
+            font-size: 1.25rem;
+            color: var(--pure-white);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            transform: rotate(-12deg);
+        }
+
+        @media (min-width: 993px) {
+            .doodle-arrow-note { display: flex; }
+        }
+
+        @keyframes heroDishOscillate {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-16px) rotate(4deg); }
+            100% { transform: translateY(6px) rotate(-3deg); }
+        }
+
+        @keyframes cactusDance {
+            0% { transform: rotate(-8deg) translateY(0); }
+            50% { transform: rotate(6deg) translateY(-8px); }
+            100% { transform: rotate(-8deg) translateY(0); }
+        }
+
+        @keyframes sunSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* ==========================================
+           4. CINTA CORREDIZA INFINITA (MARQUEE)
+           ========================================== */
+        .marquee-section {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow: hidden;
+            background: #000000;
+            border-top: 3px dashed var(--pure-white);
+            border-bottom: 3px dashed var(--pure-white);
+            padding: 14px 0;
+            transform: rotate(-1.5deg) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+            position: relative;
+            z-index: 5;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 24s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            padding-right: 35px;
+        }
+
+        .marquee-item {
+            font-family: var(--font-doodle);
+            font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+            font-weight: 700;
+            color: var(--pure-white);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+        }
+
+        .marquee-item i {
+            color: var(--pure-white);
+            font-size: 1.1rem;
+        }
+
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ==========================================
+           5. PILARES ESTILO BOCETO
+           ========================================== */
+        .features-section {
+            padding: 40px 6%;
+            border-top: 2px dashed var(--gray-border);
+            border-bottom: 2px dashed var(--gray-border);
+            background: var(--bg-dark-card);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 580px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 993px) {
+            .features-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .feature-card {
+            border: 2px solid var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            background: var(--bg-black);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--pure-white);
+            transform: translateY(-4px) rotate(1deg);
+            box-shadow: 4px 4px 0px var(--pure-white);
+        }
+
+        .feature-card i {
+            font-size: 1.8rem;
+            color: var(--pure-white);
+        }
+
+        .feature-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 2px;
+        }
+
+        .feature-card p {
+            font-size: 0.82rem;
+            color: var(--gray-text);
+        }
+
+        /* ==========================================
+           6. MENÚ DE PLATILLOS (CON MOVIMIENTO)
+           ========================================== */
+        .menu-section {
+            padding: 60px 6%;
+            position: relative;
+        }
+
+        @media (min-width: 993px) {
+            .menu-section { padding: 90px 8%; }
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.4rem, 6vw, 3.2rem);
+            margin-bottom: 5px;
+        }
+
+        .section-header p {
+            font-family: var(--font-doodle);
+            font-size: 1.3rem;
+            color: var(--gray-text);
+        }
+
+        /* Filtros con Touch-Scroll */
+        .menu-filters-wrap {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            overflow-x: auto;
+            padding: 0 6% 15px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .menu-filters-wrap::-webkit-scrollbar { display: none; }
+
+        .menu-filters {
+            display: flex;
+            gap: 12px;
+            width: max-content;
+            margin: 0 auto;
+        }
+
+        .filter-btn {
+            font-family: var(--font-doodle);
+            font-size: 1.25rem;
+            background: var(--bg-dark-card);
+            border: 2px solid var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            color: var(--gray-text);
+            padding: 6px 20px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--pure-white);
+            color: var(--bg-black);
+            border-color: var(--pure-white);
+            transform: translateY(-3px) rotate(-1deg);
+            box-shadow: 3px 3px 0px var(--gray-sketch);
+        }
+
+        /* Grid de Platillos */
+        .dishes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 55px 25px;
+            margin-top: 40px;
+        }
+
+        @media (min-width: 650px) {
+            .dishes-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1050px) {
+            .dishes-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .dish-card {
+            background: var(--bg-dark-card);
+            border: 2px solid var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 28px 20px 20px;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .dish-card:hover {
+            border-color: var(--pure-white);
+            background: var(--bg-card-hover);
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 6px 6px 0px var(--pure-white);
+        }
+
+        /* Imagen del Platillo con Movimiento */
+        .dish-img-box {
+            width: 180px;
+            height: 180px;
+            margin: -60px auto 16px;
+            position: relative;
+        }
+
+        .dish-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--pure-white);
+            box-shadow: 5px 5px 0px rgba(255, 255, 255, 0.2), 0 15px 30px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease;
+            animation: dishSwayMobile 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes dishSwayMobile {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-12px) rotate(5deg) scale(1.02); }
+        }
+
+        .dish-card:hover .dish-img {
+            animation-play-state: paused;
+            transform: translateY(-18px) scale(1.08) rotate(8deg);
+            box-shadow: 6px 6px 0px var(--pure-white), 0 20px 40px rgba(0,0,0,0.9);
+        }
+
+        .dish-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .dish-badge {
+            font-family: var(--font-doodle);
+            font-size: 1rem;
+            background: var(--bg-black);
+            border: 1px dashed var(--gray-border);
+            padding: 2px 10px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            color: var(--pure-white);
+        }
+
+        .dish-price {
+            font-family: var(--font-sketch-title);
+            font-size: 1.45rem;
+            font-weight: 700;
+        }
+
+        .dish-title {
+            font-size: 1.45rem;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .dish-desc {
+            color: var(--gray-text);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .dish-footer-note {
+            font-family: var(--font-doodle);
+            font-size: 1.05rem;
+            color: var(--gray-text);
+            border-top: 2px dashed var(--gray-border);
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        /* ==========================================
+           7. HISTORIA (CUADERNO DE BOCETOS)
+           ========================================== */
+        .story-section {
+            padding: 60px 6%;
+            background: var(--bg-dark-card);
+            border-top: 2px dashed var(--gray-border);
+            border-bottom: 2px dashed var(--gray-border);
+        }
+
+        .story-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        @media (min-width: 993px) {
+            .story-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                align-items: center;
+            }
+        }
+
+        .story-img-wrap {
+            position: relative;
+        }
+
+        .story-real-img {
+            width: 100%;
+            height: clamp(260px, 60vw, 420px);
+            object-fit: cover;
+            border: 3px solid var(--pure-white);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            box-shadow: 8px 8px 0px var(--gray-border);
+        }
+
+        .story-doodle-stamp {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: var(--bg-black);
+            border: 2px solid var(--pure-white);
+            border-radius: 50%;
+            width: 110px;
+            height: 110px;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-family: var(--font-doodle);
+            transform: rotate(-10deg);
+            box-shadow: 4px 4px 0px var(--pure-white);
+        }
+
+        /* ==========================================
+           8. RESEÑAS (VIÑETAS DE CÓMIC)
+           ========================================== */
+        .reviews-section {
+            padding: 60px 6%;
+            background: var(--bg-black);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 650px) {
+            .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .review-card {
+            background: var(--bg-dark-card);
+            border: 2px solid var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 24px 20px;
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            border-color: var(--pure-white);
+            transform: translateY(-4px) rotate(-1deg);
+            box-shadow: 5px 5px 0px var(--pure-white);
+        }
+
+        .review-stars {
+            font-family: var(--font-doodle);
+            font-size: 1.3rem;
+            color: var(--pure-white);
+            margin-bottom: 8px;
+        }
+
+        .review-text {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .review-author {
+            font-family: var(--font-doodle);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .review-author span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            color: var(--gray-sketch);
+            font-weight: 400;
+        }
+
+        /* ==========================================
+           9. HORARIOS & FAQ
+           ========================================== */
+        .info-faq-section {
+            padding: 60px 6%;
+            background: var(--bg-dark-card);
+            border-top: 2px dashed var(--gray-border);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 850px) {
+            .info-grid { grid-template-columns: 1fr 1fr; gap: 50px; }
+        }
+
+        .hours-card {
+            background: var(--bg-black);
+            border: 2px solid var(--gray-border);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            padding: 26px 20px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 2px dashed var(--gray-border);
+            font-family: var(--font-doodle);
+            font-size: 1.2rem;
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+
+        .faq-item {
+            border-bottom: 2px dashed var(--gray-border);
+            padding: 14px 0;
+        }
+
+        .faq-question {
+            font-family: var(--font-doodle);
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--gray-text);
+            font-size: 0.88rem;
+            margin-top: 6px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .faq-item.active .faq-answer { display: block; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* ==========================================
+           10. FOOTER GARABATEADO
+           ========================================== */
+        footer {
+            background-color: #08090B;
+            border-top: 2px solid var(--gray-border);
+            padding: 50px 6% 30px;
+            color: var(--gray-text);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 35px;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid { grid-template-columns: 1.4fr 1fr 1.2fr; }
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            background: var(--bg-dark-card);
+            border: 2px solid var(--gray-border);
+            display: grid;
+            place-items: center;
+            color: var(--pure-white);
+            transition: var(--transition);
+        }
+
+        .social-btn:hover {
+            border-color: var(--pure-white);
+            background: var(--pure-white);
+            color: var(--bg-black);
+        }
+
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a {
+            font-family: var(--font-doodle);
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            border-top: 2px dashed rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-doodle);
+            font-size: 1.1rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* ==========================================
+           11. BARRA RÁPIDA INFERIOR MÓVIL
+           ========================================== */
+        .mobile-bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 62px;
+            background: rgba(14, 15, 18, 0.96);
+            backdrop-filter: blur(16px);
+            border-top: 2px solid var(--gray-border);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1500;
+            padding: 0 10px;
+        }
+
+        @media (min-width: 993px) {
+            .mobile-bottom-bar { display: none; }
+        }
+
+        .bottom-bar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            color: var(--text-silver);
+            font-family: var(--font-doodle);
+            font-size: 0.95rem;
+            padding: 5px 12px;
+            transition: var(--transition);
+        }
+
+        .bottom-bar-item i { font-size: 1.15rem; }
+
+        .btn-scroll-top {
+            position: fixed;
+            bottom: 75px;
+            right: 20px;
+            width: 44px;
+            height: 44px;
+            background: var(--bg-dark-card);
+            border: 2px solid var(--pure-white);
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            color: var(--pure-white);
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+        }
+
+        @media (min-width: 993px) {
+            .btn-scroll-top { bottom: 30px; right: 30px; width: 48px; height: 48px; }
+        }
+
+        .btn-scroll-top.show { opacity: 1; visibility: visible; }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div><span><i class="fa-solid fa-location-dot"></i> Av. Alemania L10, El Cortecito, Bávaro - Punta Cana</span></div>
+        <div><span><i class="fa-solid fa-pepper-hot"></i> ¡Comida auténtica al carbón!</span></div>
+    </div>
+
+    <!-- HEADER CON LOGO ORIGINAL VECTORIAL -->
+    <header id="header">
+        <a href="#" class="logo-box">
+            <!-- Ornamento Botánico Superior -->
+            <svg class="logo-crest-svg" viewBox="0 0 300 60" fill="none">
+                <path d="M150 12 C150 25 145 35 150 48" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="150" cy="8" r="3.5" fill="#FFFFFF"/>
+                <path d="M150 28 C135 18 120 22 105 16 M150 38 C130 32 110 38 90 28 M150 45 C125 45 100 48 70 38" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <path d="M150 28 C165 18 180 22 195 16 M150 38 C170 32 190 38 210 28 M150 45 C175 45 200 48 230 38" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+                <ellipse cx="115" cy="18" rx="5" ry="2.5" fill="#A7AFBE" transform="rotate(-20 115 18)"/>
+                <ellipse cx="185" cy="18" rx="5" ry="2.5" fill="#A7AFBE" transform="rotate(20 185 18)"/>
+                <ellipse cx="95" cy="30" rx="6" ry="3" fill="#FFFFFF" transform="rotate(-15 95 30)"/>
+                <ellipse cx="205" cy="30" rx="6" ry="3" fill="#FFFFFF" transform="rotate(15 205 30)"/>
+            </svg>
+            <div class="logo-pastrata-text">Pastrata</div>
+            <div class="logo-sub-text">MEXICAN RESTAURANT</div>
+        </a>
+
+        <!-- Menú Desktop -->
+        <nav class="nav-desktop">
+            <a href="#inicio">Inicio</a>
+            <a href="#menu">Menú Ilustrado</a>
+            <a href="#historia">Nuestra Raíz</a>
+            <a href="#testimonios">Opiniones</a>
+            <a href="#horarios">Horarios & Ubicación</a>
+        </nav>
+
+        <a href="#menu" class="btn-sketch nav-desktop">
+            <i class="fa-solid fa-utensils"></i> Ver Menú
+        </a>
+
+        <!-- Botón Hamburguesa Móvil -->
+        <button class="btn-menu-toggle" id="btnMenuToggle" aria-label="Abrir Menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- MENÚ LATERAL MÓVIL (DRAWER) -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div>
+            <div class="drawer-header">
+                <div class="logo-pastrata-text" style="font-size: 2rem;">Pastrata</div>
+                <button class="btn-close-drawer" id="btnCloseDrawer">&times;</button>
+            </div>
+            <ul class="drawer-links">
+                <li><a href="#inicio" class="drawer-link"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#menu" class="drawer-link"><i class="fa-solid fa-pepper-hot"></i> Menú Ilustrado</a></li>
+                <li><a href="#historia" class="drawer-link"><i class="fa-solid fa-seedling"></i> Nuestra Raíz</a></li>
+                <li><a href="#testimonios" class="drawer-link"><i class="fa-solid fa-star"></i> Opiniones</a></li>
+                <li><a href="#horarios" class="drawer-link"><i class="fa-solid fa-map-location-dot"></i> Horarios & Mapa</a></li>
+            </ul>
+        </div>
+        <div>
+            <a href="#menu" class="btn-sketch drawer-link" style="width: 100%; text-align: center; margin-bottom: 10px;">
+                <i class="fa-solid fa-utensils"></i> Explorar Menú
+            </a>
+            <p style="font-family: var(--font-doodle); font-size: 1.1rem; color: var(--gray-text); text-align: center;">
+                El Cortecito, Bávaro • Punta Cana
+            </p>
+        </div>
+    </div>
+
+    <!-- HERO SECTION CON DOODLES & CACTUS ANIMADO -->
+    <section class="hero" id="inicio">
+        <div class="hero-grid">
+            <div>
+                <div class="doodle-badge">
+                    <i class="fa-solid fa-sparkles"></i> 🌵 Cocina del Desierto y Tradición
+                </div>
+                <h1 class="hero-title">
+                    EL VERDADERO SAZÓN
+                    <span class="title-highlight">
+                        HECHO A MANO.
+                        <!-- Subrayado Garabateado -->
+                        <svg class="doodle-underline" viewBox="0 0 300 20" fill="none">
+                            <path d="M5 12C60 4 150 18 295 8C220 18 100 6 30 15" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </span>
+                </h1>
+                <p class="hero-desc">
+                    En Pastrata nos saltamos las prisas: maíz nixtamalizado diario, frijoles en olla de barro y salsas martajadas en molcajete de piedra volcánica.
+                </p>
+                <div class="hero-actions">
+                    <a href="#menu" class="btn-sketch"><i class="fa-solid fa-fire"></i> Explorar Platillos</a>
+                    <a href="#historia" class="btn-sketch-outline">Nuestra Historia</a>
+                </div>
+            </div>
+
+            <div class="hero-dish-wrapper">
+                <!-- Flecha Garabateada con Nota -->
+                <div class="doodle-arrow-note">
+                    <span>¡Huele a leña!</span>
+                    <svg width="45" height="45" viewBox="0 0 50 50" fill="none">
+                        <path d="M10 10C25 15 35 25 35 40M35 40L25 35M35 40L42 30" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Sol Doodle Giratorio -->
+                <svg class="doodle-hero-sun" viewBox="0 0 100 100" fill="none">
+                    <circle cx="50" cy="50" r="20" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="6 4"/>
+                    <path d="M50 15V5M50 95V85M15 50H5M95 50H85M25 25L17 17M83 83L75 75M25 75L17 83M83 17L75 25" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+
+                <div class="hero-dish-box">
+                    <!-- FOTO REAL EN COLOR VIVO (ARRACHERA AL CARBÓN) -->
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=700&q=80" 
+                         alt="Arrachera al Carbón Pastrata" 
+                         class="hero-dish-img">
+
+                    <!-- CACTUS ANIMADO GARABATEADO CON SOMBRERO -->
+                    <svg class="doodle-hero-cactus" viewBox="0 0 120 140" fill="none">
+                        <path d="M50 130V35C50 24 70 24 70 35V130H50Z" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+                        <path d="M50 70H30C18 70 18 50 18 50V40C18 36 28 36 28 40V55H50V70Z" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+                        <path d="M70 85H90C102 85 102 65 102 65V50C102 46 92 46 92 50V70H70V85Z" fill="#FFFFFF" stroke="#000000" stroke-width="3"/>
+                        <circle cx="56" cy="45" r="3" fill="#000000"/>
+                        <circle cx="64" cy="45" r="3" fill="#000000"/>
+                        <path d="M56 53C58 57 62 57 64 53" stroke="#000000" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M40 32C40 32 50 20 60 20C70 20 80 32 80 32H40Z" fill="#000000"/>
+                        <ellipse cx="60" cy="32" rx="28" ry="4" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CINTA CORREDIZA INFINITA (MARQUEE) -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span class="marquee-item"><i class="fa-solid fa-pepper-hot"></i> TACOS DE ARRACHERA AL CARBÓN</span>
+                <span class="marquee-item">🌵 QUESO FUNDIDO CON CHORIZO</span>
+                <span class="marquee-item"><i class="fa-solid fa-fire"></i> TACOS AL PASTOR CON PIÑA ASADA</span>
+                <span class="marquee-item">🥑 GUACAMOLE FRESCO CON TOTOPOS</span>
+                <span class="marquee-item"><i class="fa-solid fa-beer-mug-empty"></i> MICHELADA OJO ROJO</span>
+                <span class="marquee-item">📍 EL CORTECITO • PUNTA CANA</span>
+            </div>
+            <div class="marquee-content">
+                <span class="marquee-item"><i class="fa-solid fa-pepper-hot"></i> TACOS DE ARRACHERA AL CARBÓN</span>
+                <span class="marquee-item">🌵 QUESO FUNDIDO CON CHORIZO</span>
+                <span class="marquee-item"><i class="fa-solid fa-fire"></i> TACOS AL PASTOR CON PIÑA ASADA</span>
+                <span class="marquee-item">🥑 GUACAMOLE FRESCO CON TOTOPOS</span>
+                <span class="marquee-item"><i class="fa-solid fa-beer-mug-empty"></i> MICHELADA OJO ROJO</span>
+                <span class="marquee-item">📍 EL CORTECITO • PUNTA CANA</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PILARES DE CALIDAD -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fa-solid fa-fire"></i>
+                <div>
+                    <h4>Brasas al Carbón</h4>
+                    <p>Carnes jugosas al comal y leña.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-pepper-hot"></i>
+                <div>
+                    <h4>Molcajete Vivo</h4>
+                    <p>Salsas martajadas al día.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-beer-mug-empty"></i>
+                <div>
+                    <h4>Micheladas Frías</h4>
+                    <p>Ojo rojo y margaritas de autor.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-heart"></i>
+                <div>
+                    <h4>Sazón Casero</h4>
+                    <p>Recetas 100% auténticas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENÚ ILUSTRADO (FOTOS REALES DE INSTAGRAM EN COLOR) -->
+    <section class="menu-section" id="menu">
+        <div class="section-header">
+            <h2>NUESTRO MENÚ</h2>
+            <p>✦ Pasa el cursor sobre los platillos para verlos en acción ✦</p>
+        </div>
+
+        <div class="menu-filters-wrap">
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">Toda la Carta</button>
+                <button class="filter-btn" data-filter="entradas">🧀 Cazuelas & Entradas</button>
+                <button class="filter-btn" data-filter="especiales">🥩 Cortes & Arrachera</button>
+                <button class="filter-btn" data-filter="tacos">🌮 Tacos al Carbón</button>
+                <button class="filter-btn" data-filter="bebidas">🍹 Bebidas & Micheladas</button>
+            </div>
+        </div>
+
+        <div class="dishes-grid">
+
+            <!-- Platillo 1: Queso Fundido con Chorizo -->
+            <div class="dish-card" data-category="entradas">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=500&q=80" alt="Queso Fundido con Chorizo" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">🔥 El Más Pedido</span>
+                        <span class="dish-price">$12.00</span>
+                    </div>
+                    <h3 class="dish-title">Queso Fundido con Chorizo</h3>
+                    <p class="dish-desc">Cazuela de queso fundido dorado al comal con chorizo artesanal bien doradito, servido con tortillas calientitas.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Para botanear</span>
+                    <span>Tortillas recién hechas</span>
+                </div>
+            </div>
+
+            <!-- Platillo 2: Arrachera al Carbón -->
+            <div class="dish-card" data-category="especiales">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="Arrachera al Carbón" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">⭐ Especialidad</span>
+                        <span class="dish-price">$22.50</span>
+                    </div>
+                    <h3 class="dish-title">Arrachera al Carbón</h3>
+                    <p class="dish-desc">Corte suave marinado y asado a las brasas, con cebollitas cambray, chile toreado, frijoles refritos y guacamole.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Corte a la brasa</span>
+                    <span>Plato fuerte</span>
+                </div>
+            </div>
+
+            <!-- Platillo 3: Tacos al Pastor -->
+            <div class="dish-card" data-category="tacos">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=500&q=80" alt="Tacos al Pastor" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">🌮 Clásico</span>
+                        <span class="dish-price">$14.00</span>
+                    </div>
+                    <h3 class="dish-title">Tacos al Pastor con Piña</h3>
+                    <p class="dish-desc">Carne de cerdo adobada en achiote y chiles secos, piña asada al fuego, cebolla morada y cilantro en tortilla de maíz.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Orden de 4 tacos</span>
+                    <span>Salsas de la casa</span>
+                </div>
+            </div>
+
+            <!-- Platillo 4: Guacamole con Totopos -->
+            <div class="dish-card" data-category="entradas">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=500&q=80" alt="Guacamole con Totopos" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">🌱 100% Fresco</span>
+                        <span class="dish-price">$9.50</span>
+                    </div>
+                    <h3 class="dish-title">Guacamole con Totopos</h3>
+                    <p class="dish-desc">Aguacate fresco machacado al momento con pico de gallo, limón y sal de grano, servido con totopos crujientes.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Ideal para compartir</span>
+                    <span>Receta casera</span>
+                </div>
+            </div>
+
+            <!-- Platillo 5: Fajitas Mixtas -->
+            <div class="dish-card" data-category="especiales">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1534352956036-cd81e27dd615?auto=format&fit=crop&w=500&q=80" alt="Fajitas Mixtas" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">🔥 Plancha Caliente</span>
+                        <span class="dish-price">$18.50</span>
+                    </div>
+                    <h3 class="dish-title">Fajitas Mixtas Pastrata</h3>
+                    <p class="dish-desc">Tiras de res, pollo y pimientos salteados a la plancha de hierro ardiente con queso fundido y guarniciones.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Bien servido</span>
+                    <span>Sabor ahumado</span>
+                </div>
+            </div>
+
+            <!-- Platillo 6: Michelada Ojo Rojo -->
+            <div class="dish-card" data-category="bebidas">
+                <div class="dish-img-box">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=80" alt="Michelada Ojo Rojo" class="dish-img">
+                </div>
+                <div>
+                    <div class="dish-top">
+                        <span class="dish-badge">🍺 Bien Fría</span>
+                        <span class="dish-price">$7.50</span>
+                    </div>
+                    <h3 class="dish-title">Michelada Ojo Rojo</h3>
+                    <p class="dish-desc">Cerveza bien fría servida en vaso escarchado con sal y chile, jugo de tomate sazonado, limón y toque de salsas negras.</p>
+                </div>
+                <div class="dish-footer-note">
+                    <span>Clásico mexicano</span>
+                    <span>Muy refrescante</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HISTORIA (CUADERNO DE BOCETOS) -->
+    <section class="story-section" id="historia">
+        <div class="story-grid">
+            <div class="story-img-wrap">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ambiente Pastrata" class="story-real-img">
+                <div class="story-doodle-stamp">
+                    <div>
+                        <strong style="font-size: 1.4rem; display: block;">El Cortecito</strong>
+                        <span>Punta Cana</span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="doodle-badge">🌵 Tradición del Desierto</div>
+                <h2 style="font-size: 2.8rem; margin-bottom: 20px;">EL ARTE DEL FUEGO Y LA MEMORIA</h2>
+                <p style="color: var(--gray-text); margin-bottom: 15px;">
+                    En <strong>Pastrata Mexican Restaurant</strong> cocinamos con las manos y el corazón. Nacimos con la idea de traer el verdadero sabor de los pueblos desérticos: ese donde el humo del carbón te abre el apetito antes de sentarte.
+                </p>
+                <p style="color: var(--gray-text); margin-bottom: 25px;">
+                    No usamos salsas de lata ni tortillas frías. Aquí todo se elabora a fuego lento para que cada visita sea una fiesta de sabor auténtico.
+                </p>
+                <a href="#horarios" class="btn-sketch"><i class="fa-solid fa-map-pin"></i> Dónde Encontrarnos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESEÑAS -->
+    <section class="reviews-section" id="testimonios">
+        <div class="section-header">
+            <h2>LO QUE DICEN DE NOSOTROS</h2>
+            <p>Opiniones reales de comensales felices</p>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★ (5/5)</div>
+                <p class="review-text">"La arrachera y el queso fundido con chorizo son de otro mundo. El mejor restaurante mexicano en El Cortecito."</p>
+                <div class="review-author">Carlos Mendoza <span>Visitante</span></div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★ (5/5)</div>
+                <p class="review-text">"El guacamole recién hecho y las micheladas ojo rojo están insuperables. La vibra del lugar es genial."</p>
+                <div class="review-author">Mariana Silva <span>Amante de los tacos</span></div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-stars">★★★★★ (5/5)</div>
+                <p class="review-text">"Excelente atención, comida calientita al momento y porciones bien servidas. Tienen un cliente fiel."</p>
+                <div class="review-author">Roberto Garza <span>Guía Local</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIOS & FAQ -->
+    <section class="info-faq-section" id="horarios">
+        <div class="info-grid">
+            <div>
+                <div class="doodle-badge">⏰ Cuándo venir</div>
+                <h2 style="font-size: 2.6rem; margin-bottom: 25px;">HORARIOS DE ATENCIÓN</h2>
+
+                <div class="hours-card">
+                    <div class="hours-row">
+                        <span>Lunes a Domingo</span>
+                        <span>12:00 PM – 11:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Almuerzo & Tarde</span>
+                        <span>12:00 PM – 5:00 PM</span>
+                    </div>
+                    <div class="hours-row">
+                        <span>Cena & Tragos</span>
+                        <span>5:00 PM – 11:00 PM</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; font-family: var(--font-doodle); font-size: 1.2rem; color: var(--gray-text);">
+                    <p>📍 Av. Alemania L10, El Cortecito, Bávaro</p>
+                    <p>🚗 Estacionamiento disponible</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="doodle-badge">❓ Preguntas frecuentes</div>
+                <h2 style="font-size: 2.6rem; margin-bottom: 25px;">DUDAS COMUNES</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Cómo es el acceso al restaurante?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Atendemos por orden de llegada con amplia terraza al aire libre en Green Coast Beach Hotel.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Tienen platillos vegetarianos o sin gluten?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        ¡Claro! Las tortillas de maíz son sin gluten y tenemos guacamole fresco, quesos fundidos y ensaladas.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ¿Qué métodos de pago aceptan?
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Aceptamos todas las tarjetas de crédito, débito y efectivo.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER GARABATEADO -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo-pastrata-text" style="font-size: 2.3rem;">Pastrata</div>
+                <div class="logo-sub-text" style="margin-bottom: 12px;">MEXICAN RESTAURANT</div>
+                <p style="font-size: 0.9rem;">
+                    Auténtica cocina mexicana al carbón en El Cortecito, Bávaro, Punta Cana.
+                </p>
+                <div class="footer-socials">
+                    <a href="https://instagram.com/pastratamexicanrest" target="_blank" class="social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" class="social-btn" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 style="font-size: 1.4rem; color: var(--pure-white); margin-bottom: 12px;">Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú Ilustrado</a></li>
+                    <li><a href="#historia">Nuestra Raíz</a></li>
+                    <li><a href="#horarios">Horarios & Ubicación</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 style="font-size: 1.4rem; color: var(--pure-white); margin-bottom: 12px;">Contacto</h4>
+                <p style="font-size: 0.9rem; margin-bottom: 6px;"><i class="fa-solid fa-location-dot"></i> Av. Alemania L10, El Cortecito, Bávaro</p>
+                <p style="font-size: 0.9rem; margin-bottom: 6px;"><i class="fa-solid fa-phone"></i> +1 (829) 637-3623</p>
+                <p style="font-size: 0.9rem;"><i class="fa-solid fa-envelope"></i> hola@pastratarestaurant.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 <strong>Pastrata Mexican Restaurant</strong>. Hecho con pasión y leña.</p>
+            <div><span>✦ Cocina Mexicana Auténtica ✦</span></div>
+        </div>
+    </footer>
+
+    <!-- BARRA INFERIOR RÁPIDA (MÓVIL) -->
+    <div class="mobile-bottom-bar">
+        <a href="#menu" class="bottom-bar-item">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Menú</span>
+        </a>
+        <a href="https://instagram.com/pastratamexicanrest" target="_blank" class="bottom-bar-item">
+            <i class="fa-brands fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+        <a href="tel:+18296373623" class="bottom-bar-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>Llamar</span>
+        </a>
+        <a href="#horarios" class="bottom-bar-item">
+            <i class="fa-solid fa-map-pin"></i>
+            <span>Ubicación</span>
+        </a>
+    </div>
+
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button class="btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop()" title="Subir">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Header con Scroll
+        const header = document.getElementById('header');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+                scrollTopBtn.classList.add('show');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Control Menú Lateral Móvil
+        const btnToggle = document.getElementById('btnMenuToggle');
+        const btnClose = document.getElementById('btnCloseDrawer');
+        const drawer = document.getElementById('mobileDrawer');
+        const overlay = document.getElementById('drawerOverlay');
+        const drawerLinks = document.querySelectorAll('.drawer-link');
+
+        function openDrawer() {
+            drawer.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        btnToggle.addEventListener('click', openDrawer);
+        btnClose.addEventListener('click', closeDrawer);
+        overlay.addEventListener('click', closeDrawer);
+
+        drawerLinks.forEach(link => {
+            link.addEventListener('click', closeDrawer);
+        });
+
+        // Filtro de Platillos
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const dishCards = document.querySelectorAll('.dish-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const category = btn.getAttribute('data-filter');
+
+                dishCards.forEach(card => {
+                    if (category === 'all' || card.getAttribute('data-category') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Acordeón
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
